@@ -1,0 +1,15 @@
+F:\Learning\DSA\obj\Debug\net7.0\DSA.csproj.AssemblyReference.cache
+F:\Learning\DSA\obj\Debug\net7.0\DSA.GeneratedMSBuildEditorConfig.editorconfig
+F:\Learning\DSA\obj\Debug\net7.0\DSA.AssemblyInfoInputs.cache
+F:\Learning\DSA\obj\Debug\net7.0\DSA.AssemblyInfo.cs
+F:\Learning\DSA\obj\Debug\net7.0\DSA.csproj.CoreCompileInputs.cache
+F:\Learning\DSA\bin\Debug\net7.0\DSA.exe
+F:\Learning\DSA\bin\Debug\net7.0\DSA.deps.json
+F:\Learning\DSA\bin\Debug\net7.0\DSA.runtimeconfig.json
+F:\Learning\DSA\bin\Debug\net7.0\DSA.dll
+F:\Learning\DSA\bin\Debug\net7.0\DSA.pdb
+F:\Learning\DSA\obj\Debug\net7.0\DSA.dll
+F:\Learning\DSA\obj\Debug\net7.0\refint\DSA.dll
+F:\Learning\DSA\obj\Debug\net7.0\DSA.pdb
+F:\Learning\DSA\obj\Debug\net7.0\DSA.genruntimeconfig.cache
+F:\Learning\DSA\obj\Debug\net7.0\ref\DSA.dll
