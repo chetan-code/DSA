@@ -1,6 +1,6 @@
-# 🧠 Custom Data Structures in C
+# 🧠 Custom Data Structures in C (Main), with example code in C++ and C# 
 
-This project contains custom implementations of common data structures in C, designed for learning and demonstration purposes. All data structures are built using fixed-size arrays without dynamic resizing (except where `malloc` is explicitly used). The code is well-commented and organized into sections for clarity.
+This project contains custom implementations of common data structures in C/C++, designed for learning and demonstration purposes. All data structures are built using fixed-size arrays without dynamic resizing (except where `malloc` is explicitly used). The code is well-commented and organized into sections for clarity.
 
 ## 🧰 Features
 
