@@ -99,6 +99,162 @@ class Dictionery{
         }
 };
 
+//Implementation of a linked list
+struct LinkNode{
+    int data;
+    LinkNode* next;
+    
+    LinkNode(int val){
+        data = val;
+        next = nullptr;
+    }
+};
+
+class LinkedList{
+    LinkNode* head;
+   
+public :
+    LinkedList(){
+        head = nullptr;
+    }    
+
+    //insert at end
+    void push_back(int value){
+        LinkNode* newNode = new LinkNode(value);
+        //head is not set yet
+        if(head == nullptr){
+            head = newNode;
+            return;
+        }
+
+        //iterate to find the next null node
+        LinkNode* temp = head;
+        while(temp->next != nullptr){
+            temp = temp->next;
+        }
+        temp->next = newNode;
+    }
+
+    //insert at front
+    void push_front(int value){
+        LinkNode* newNode = new LinkNode(value);
+        newNode->next = head;
+        head = newNode;
+    }
+
+    void reverse(){
+        LinkNode *prev = nullptr;
+        LinkNode *current = head;
+        LinkNode *next = nullptr;
+        //iterate through and swap pointers
+        while(current != nullptr){
+            next = current->next;
+            current->next = prev;
+            prev = current;
+            current = next;
+        }
+        //new head
+        head = prev;
+    }
+
+    void print(){
+        LinkNode *temp = head;
+        while(temp->next != nullptr){
+            std::cout << "["<< temp->data << "]" << "->";
+            temp = temp->next;
+        }
+        std::cout << "NULL \n";
+    }
+};
+
+//Implementation of BST
+struct Node{
+    int val;
+    Node *left;
+    Node *right;
+    Node(int newVal){
+        val = newVal;
+        left = right = nullptr;
+    }
+};
+
+class BST{
+    Node *root;
+
+    Node* insert(Node* root, int val){
+        if(root == nullptr){
+            return new Node(val);
+        }
+
+        if(val < root->val){
+            root->left = insert(root->left, val);
+        }else if(val >= root->val){
+            //duplicate go to the right
+            root->right = insert(root->right, val);
+        }
+        return root;
+    }
+
+    bool search(Node* root, int val){
+        if(root == nullptr){
+            return false;
+        }
+
+        if(root->val == val){
+            return true;
+        }
+
+        if(val < root->val){
+            return search(root->left, val);
+        }else {
+            return search(root->right, val);
+        }
+    }
+
+    //in order traversal => left -> root ->right
+    void inorder(Node* node){
+        if(node == nullptr){
+            return;
+        }
+        inorder(node->left);
+        std::cout << node->val << " ";
+        inorder(node->right);
+    }
+
+    Node* findMin(Node* node){
+        while(node && node->left != nullptr){
+            node = node->left;
+        }
+        return node;
+    }
+
+    void mirror(Node* node){
+        if(node == nullptr){
+            return;
+        }
+
+        //swap left and right
+        Node *temp = node->left;
+        node->left = node->right;
+        node->right = temp;
+        
+        //recurse for children
+        mirror(node->left);
+        mirror(node->right);
+    }
+};
+
+void testLinkedList(){
+    LinkedList list;
+    list.push_back(10);
+    list.push_back(11);
+    list.push_back(12);
+    list.push_back(13);
+    list.print();
+    list.reverse();
+    list.print();
+}
+
 void testStack(){
     Stack s;
     s.push(10);
@@ -122,6 +278,6 @@ void testDictionery() {
 
 int main(int argc, char const *argv[])
 {
-    testDictionery();
+    testLinkedList();
     return 0;
 }

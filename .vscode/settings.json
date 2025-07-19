@@ -6,6 +6,12 @@
         "system_error": "c",
         "type_traits": "c",
         "xlocnum": "c",
-        "xtr1common": "c"
-    }
+        "xtr1common": "c",
+        "vector": "cpp",
+        "xtree": "cpp",
+        "xstring": "cpp",
+        "xutility": "cpp",
+        "algorithm": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
