@@ -539,6 +539,59 @@ void precomputeFastMap(int arr[], int n){
 int findFastMap(int x){
     return fastNumberMap[x];//O(1) is most cases
 }
+//to find element with highest or lowest freq - do either linear search or reverse map to make frequency to element map
+
+//SORTING
+//selection sort - find the minumum index at each index - swap it - and move from 0 to n - 2 
+//3 4 2 1 7 => 1 4 2 3 7 => 1 2 4 3 7 => 1 2 3 4 7 => 1 2 3 4 7
+//^     ^        ^ ^            ^ ^            ^ ^     RESULT
+void selection_sort(int arr[], int n){
+    for (int i = 0; i < n - 1; i++){ //we dont need last element
+        int min = i;
+        //find min from remaining next element
+        for (int j = i; j < n; j++){
+            if(arr[j] < arr[min]){
+                min = j;
+            }
+        }
+        swap(arr[i], arr[min]);
+    }
+    //complexity => O(n^2) for all cases
+}
+
+//Bubble Sort - best case (already sorted arr) => O(n)
+// average and work case => O(n^2)
+void bubble_sort(int arr[], int n){
+    int didSwap = 0;
+    for (int i = n - 1; i > 0; i--){
+        for (int j = 0; j < i; j++){
+            if(arr[j] > arr[j + 1]){
+                swap(arr[j], arr[j + 1]);
+                didSwap = 1;
+            }
+        }
+        if(didSwap == 0){
+            break;
+        }
+    }
+    //if we have already sorted array we can check it in one loop => no swap will happen
+}
+
+//Find right position for each element 
+// 3 2 4 1 
+// 2 3 4 1 // [0, 1] comp
+// 2 3 4 1 //[0,1], [1,2] comp => no swap
+// 2 3 4 1 //[0,1],[1,2] [2,3] comp=> swap till 1 reaches front (arr[2] > arr[3]) -> arr[1] > arr[2] -> arr[1] > arr[0]
+// 1 2 3 4
+void insertion_sort(int arr[], int n){
+    for (int i = 0; i < n - 1; i++){
+        int j = i;
+        while(arr[j - 1] > arr[j] && j > 0){
+            swap(arr[j - 1], arr[j]);//move to right
+            j--;
+        }
+    }
+}
 
 int main(){
     int n;
@@ -547,14 +600,10 @@ int main(){
     for (int i = 0; i < n; i++){
         cin >> arr[i];
     }
-    precomputeFastMap(arr, n);
-    int q;
-    cin >> q;
-    while(q--){
-        //query
-        int x;
-        cin >> x;
-        cout << findFastMap(x) << endl;
+    insertion_sort(arr, n);
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
     }
     return 0;
 }
